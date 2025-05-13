@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Dice Guess Game</title>
+    <script src="prj1.js"></script>
 </head>
 <body>
-    <form id="form" action="index.html" method="post">
-        <input type="text" name="name" placeholder="Enter your name" required>
-        <input type="submit" value="Submit" onclick="return validateForm()">
-        <input type="button" value="Cancel" onclick="window.location.href='index.html'">
-        <input type="reset" value="Reset">
-    </form>
+    <h1>Dice Guess Game</h1>
+    <p>Guess the number on the dice (1-6)</p>
+    <label>Enter Number : </label><input type="number" id="guess" min="1" max="6"><br>
+    <label>Enter Bet Amount : </label>
+    <input type="number" id="bet" min="1" max="1000"> <br>  
+    <button id="submitGuess">Submit Guess</button>
+    <p>Your Balance: ₹<span id="balanceDisplay">1000</span></p>
+<p id="resultMessage" style="font-weight: bold;"></p>
+
+
 </body>
 </html>
