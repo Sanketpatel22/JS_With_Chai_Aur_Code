@@ -16,8 +16,8 @@ const RegularUser = {
     isLoggedIn: false,   
 }
 
-console.log(RegularUser.fullName);
-console.log(RegularUser.fullName.userName);
+// console.log(RegularUser.fullName);
+// console.log(RegularUser.fullName.userName);
 
 //combining two objects 
 
@@ -32,8 +32,19 @@ const obj2 = {
 }
 
 const obj3 = Object.assign(obj1, obj2) //combines two objects
-console.log(obj3);
+// console.log(obj3);
 
 const obj4 = {...obj1, ...obj2} //combines two objects
-console.log(obj4);
+// console.log(obj4);
 
+const Course = {
+    coursetitle: "Javascript",
+    price: 199,
+    instructor: "Sanket",
+}
+
+const {instructor} = Course; //destructuring
+console.log(instructor);
+
+const {coursetitle:title} = Course; //destructuring
+console.log(title);
