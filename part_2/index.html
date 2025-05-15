@@ -3,15 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Dice Guess Game</title>
+    <script src="project1.js"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+        text-align: center;
+        padding: 40px;
+        color: #333;
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    input[type="number"] {
+        padding: 8px;
+        width: 60px;
+        font-size: 1rem;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #27ae60;
+        color: white;
+        padding: 10px 20px;
+        margin-top: 15px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background-color: #219150;
+    }
+
+    #resultMessage {
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
+
+    #balanceDisplay {
+        font-weight: bold;
+        color: #d35400;
+    }
+</style>
+
 </head>
 <body>
-    <form id="form" action="index.html" method="post">
-        <input type="text" name="name" placeholder="Enter your name" required>
-        <input type="submit" value="Submit" onclick="return validateForm()">
-        <input type="button" value="Cancel" onclick="window.location.href='index.html'">
-        <input type="reset" value="Reset">
-    </form>
+    <h1>Dice Guess Game</h1>
+    <p>Guess the number on the dice (1-6)</p>
+    <label>Enter Number : </label><input type="number" id="guess" min="1" max="6"><br>
+    <label>Enter Bet Amount : </label>
+    <input type="number" id="bet" min="1" max="1000"> <br>  
+    <button id="submitGuess">Submit Guess</button>
+    <p>Your Balance: ₹<span id="balanceDisplay">1000</span></p>
+<p id="resultMessage" style="font-weight: bold;"></p>
+
+
 </body>
 </html>
