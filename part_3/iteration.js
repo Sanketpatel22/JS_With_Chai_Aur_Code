@@ -129,7 +129,7 @@ const myCoding = [
     }
 ]
 
-myCoding.forEach( (item) => {
+myCoding.forEach((item) => {
     
     console.log(item.name);
 })
