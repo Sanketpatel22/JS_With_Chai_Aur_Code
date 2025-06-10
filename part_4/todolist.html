@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h2>To-Do List</h2>
+    <p>Add your task below</p>
+    <input type="text" id="taskInput" placeholder="Enter a new task" required>
+    <button type="submit" onclick="addTask()">Add Task</button>
+    <ul id="todoList"></ul>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        li button {
+            margin-left: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        li button:hover {
+            background-color: #c82333;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        input:invalid {
+            border-color: red;
+        }
+        input:valid {
+            border-color: green;
+        }
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        input::placeholder {
+            color: #999;
+        }
+        input:focus::placeholder {
+            color: transparent;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        button:disabled:hover {
+            background-color: #6c757d;
+        }
+        ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul li button {
+            margin-left: 20px;
+            padding: 5px 10px;
+        }
+        ul li button:hover {
+            background-color: #c82333;
+        }
+        ul li button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        ul li button:active {
+            background-color: #bd2130;
+        }
+        ul li button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        ul li button:disabled:hover {
+            background-color: #6c757d;
+        }
+        ul li button:disabled:focus {
+            box-shadow: none;
+        }
+        ul li button:disabled:active {
+            background-color: #6c757d;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        input[type="text"]:focus::placeholder {
+            color: transparent;
+        }
+        input[type="text"]:invalid {
+            border-color: red;
+        }
+        input[type="text"]:valid {
+            border-color: green;
+        }
+        input[type="text"]:disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        input[type="text"]:disabled:focus {
+            border-color: #ced4da;
+            box-shadow: none;
+        }
+        input[type="text"]:disabled::placeholder {
+            color: #6c757d;
+        }
+        input[type="text"]:disabled:focus::placeholder {
+            color: #6c757d;
+        }
+        input[type="text"]:required {
+            border-color: #dc3545;
+        }
+        input[type="text"]:required:valid {
+            border-color: #28a745;
+        }
+        input[type="text"]:required:invalid {
+            border-color: #dc3545;
+        }
+        input[type="text"]:required:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        input[type="text"]:required::placeholder {
+            color: #999;
+        }
+        input[type="text"]:required:focus::placeholder {
+            color: transparent;
+        }
+        input[type="text"]:required:disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        input[type="text"]:required:disabled:focus {
+            border-color: #ced4da;
+            box-shadow: none;
+        }
+        input[type="text"]:required:disabled::placeholder {
+            color: #6c757d;
+        }
+        input[type="text"]:required:disabled:focus::placeholder {
+            color: #6c757d;
+        }
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button:active {
+            background-color: #218838;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        button:disabled:hover {
+            background-color: #6c757d;
+        }
+        button:disabled:focus {
+            box-shadow: none;
+        }
+        button:disabled:active {
+            background-color: #6c757d;
+        }
+        button:disabled:focus {
+            box-shadow: none;
+        }
+        button:disabled:active {
+            background-color: #6c757d;
+        }
+        button:disabled:focus {
+            box-shadow: none;
+        }
+        button:disabled:active {
+            background-color: #6c757d;
+        }
+        button:disabled:focus {
+            box-shadow: none;
+        }
+
+
+    </style>
+    <script>
+     function addTask(task)
+     {
+      const input = document.getElementById("taskInput");
+      const taskValue = input.value.trim();
+      if (taskValue === "") {
+        alert("Please enter a task.");
+        return;
+      } 
+      else {
+      const li = document.createElement("li");
+      li.innerText = taskValue;
+      document.getElementById("todoList").appendChild(li);
+      const deleteButton = document.createElement("button");
+      deleteButton.innerText = "Delete";
+        deleteButton.onclick = function() {
+            li.remove();
+        }
+
+
+        li.appendChild(deleteButton);
+        const completeButton = document.createElement("button");
+        completeButton.innerText = "Complete";
+        completeButton.onclick = function() {
+            li.style.textDecoration = "line-through";
+            completeButton.disabled = true;
+        }
+        li.appendChild(completeButton);
+
+        
+        const editButton = document.createElement("button");
+        editButton.innerText = "Edit";
+        editButton.onclick = function() {
+            const newTask = prompt("Edit your task:", taskValue);
+            if (newTask !== null && newTask.trim() !== "") {
+                li.firstChild.nodeValue = newTask;
+            }
+        }
+        li.appendChild(editButton);
+
+      }
+    }
+    </script>
+</body>
+</html>
